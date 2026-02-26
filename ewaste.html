@@ -3,22 +3,142 @@
 <head>
   <title>E-Waste</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- ✅ Latest EmailJS v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    // ✅ Initialize EmailJS
+    emailjs.init({
+      publicKey: "Z7lOHS0GxzMBx8eBa"
+    });
+  </script>
+
+  <style>
+    /* Extra styling if not in style.css */
+    select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+  </style>
 </head>
+
 <body>
 
+<!-- ✅ NAVBAR -->
 <div class="navbar">
   <div class="logo">E-Waste Store</div>
   <div class="nav-links">
-    <a href="index.html">Home</a>
+    <a href="home.html">Home</a>
     <a href="ewaste.html">E-Waste</a>
     <a href="settings.html">Settings</a>
     <a href="login.html">Sign In</a>
   </div>
 </div>
 
-<h2 style="text-align:center; margin-top:100px;">
-  Welcome to E-Waste Collection Page
-</h2>
+<!-- ✅ FORM -->
+<div class="form-box">
+  <h2>E-Waste Collection Form</h2>
+
+  <form id="ewasteForm">
+
+    <!-- Image (Note: Free plan won't send file) -->
+    <label>Upload Item Image</label>
+    <input type="file" name="image">
+
+    <!-- Item Name -->
+    <label>Item Name</label>
+    <input type="text" name="item_name" required>
+
+    <!-- Type -->
+    <label>Type</label>
+    <select name="type" required>
+      <option value="">Select Type</option>
+      <option>Mobile</option>
+      <option>Laptop</option>
+      <option>TV</option>
+      <option>Battery</option>
+      <option>Charger</option>
+      <option>Other</option>
+    </select>
+
+    <!-- Quantity -->
+    <label>Quantity</label>
+    <select name="qty" required>
+      <option value="">Select Quantity</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5+</option>
+    </select>
+
+    <!-- Cost -->
+    <label>Expected Cost (₹)</label>
+    <select name="cost" required>
+      <option value="">Select Price</option>
+      <option>1000</option>
+      <option>2000</option>
+      <option>3000</option>
+      <option>4000</option>
+      <option>5000</option>
+      <option>6000</option>
+      <option>7000</option>
+      <option>8000</option>
+      <option>9000</option>
+      <option>10000</option>
+    </select>
+
+    <!-- Address -->
+    <label>Pickup Address</label>
+    <textarea name="address" required></textarea>
+
+    <!-- Time -->
+    <label>Select Your Free Time</label>
+    <input type="time" name="time" required>
+
+    <!-- Date -->
+    <label>Select Date</label>
+    <input type="date" name="date" required>
+
+    <!-- Phone -->
+    <label>Phone Number</label>
+    <input type="tel" name="phone" pattern="[0-9]{10}" required>
+
+    <!-- Submit -->
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
+
+<!-- ✅ EMAILJS SEND SCRIPT -->
+<script>
+  document.getElementById("ewasteForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    emailjs.sendForm(
+      "service_secrtr3",      // ✅ Your Service ID
+      "template_vv263ld",     // ✅ Your Template ID
+      this
+    )
+    .then(function () {
+      alert("✅ Request sent successfully!");
+      document.getElementById("ewasteForm").reset();
+    })
+    .catch(function (error) {
+      alert("❌ Failed to send. Check console.");
+      console.error("EmailJS Error:", error);
+    });
+  });
+</script>
 
 </body>
 </html>
