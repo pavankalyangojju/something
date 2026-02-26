@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0a7cff;
+  padding: 12px 20px;
+  color: white;
+}
+
+.nav-links a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Big Button */
+.big-btn {
+  display: block;
+  width: 300px;
+  margin: 120px auto;
+  padding: 20px;
+  font-size: 24px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.big-btn:hover {
+  background: #218838;
+}
+
+/* Form */
+.form-box {
+  width: 320px;
+  margin: 80px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #0a7cff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
